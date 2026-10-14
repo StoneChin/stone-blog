@@ -1,21 +1,21 @@
-# 关于我 / About Me
+# About Me
 
-你好！我是 **夏叶** ，一个在数字世界中默默无闻的一片叶子。
+## 自我介绍
 
-## 🛠️ 关于本站
+你好！我是**Stone**，学习成长经历：
+- 高中学习数学竞赛，获2016年全国高中数学联赛一等奖（山东）
+- 通过竞赛自主招生降分至一本线保送进入`山东大学`学习，就读软件工程专业
+- 研究生就读于`北京大学`软件与微电子学院软件工程，研究生期间因不幸发生交通事故住院，延期毕业中
 
-这个网站使用 **Astro** 框架构建，采用了 [Firefly](https://github.com/CuteLeaf/Firefly) 模板，Firefly 是基于 [Fuwari](https://github.com/saicaca/fuwari) 的二次开发。
+## 个人标签
+`#程序员🧑‍💻`、`#算子开发🔧`、`大模型推理📉`、`二次元摄影📷`
 
-**Firefly** 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。
+## 友情链接
+**[SongXJ](https://songxj01.github.io/SongXJ01/)**  `高性能计算` `GPU加速` `大模型模型`
 
+## Special Thanks
 
-**🖥️在线预览： [Firefly - Demo site](https://firefly.cuteleaf.cn/)**
-
-**📝Firefly使用文档： [https://docs-firefly.cuteleaf.cn](https://docs-firefly.cuteleaf.cn/)**
-
-**⭐Firefly开源地址：[https://github.com/CuteLeaf/Firefly](https://github.com/CuteLeaf/Firefly)** 
-
-**⭐Fuwari开源地址：[https://github.com/saicaca/fuwari](https://github.com/saicaca/fuwari)**
+Stone的博客使用[Fuwari](https://github.com/saicaca/fuwari)框架的二次开发项目[Firefly](https://github.com/CuteLeaf/Firefly)，通过Astro构建，感谢作者大大
 
 ::github{repo="CuteLeaf/Firefly"}
 
