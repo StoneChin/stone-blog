@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1160" viewBox="0 0 1800 1160"><rect width="100%" height="100%" fill="#F6F8FC"/>
+<text x="64.0" y="44" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="44" font-weight="700" fill="#15253F">03 / 先分清：KV 怎么存，前缀怎么找</text>
+<text x="66.0" y="110" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#53647B">分页是存储与寻址方式；哈希索引和 Radix Tree 是查找可复用前缀的组织方式</text>
+<rect x="60" y="180" width="1680" height="220" rx="18" fill="#FFFFFF" stroke="#D9E2EF" stroke-width="2"/>
+<text x="85.0" y="202" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#15253F">共享输入示例</text>
+<text x="90.0" y="263" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#2563EB">请求 A</text>
+<text x="90.0" y="332" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#087F8C">请求 B</text>
+<rect x="230" y="251" width="450" height="54" rx="18" fill="#EFF5FF" stroke="#2563EB" stroke-width="2"/>
+<text x="252.0" y="269" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#2563EB">系统提示 S</text>
+<rect x="705" y="251" width="450" height="54" rx="18" fill="#EFF5FF" stroke="#2563EB" stroke-width="2"/>
+<text x="727.0" y="269" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#2563EB">公共文档 D</text>
+<rect x="230" y="320" width="450" height="54" rx="18" fill="#EFF5FF" stroke="#2563EB" stroke-width="2"/>
+<text x="252.0" y="338" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#2563EB">系统提示 S</text>
+<rect x="705" y="320" width="450" height="54" rx="18" fill="#EFF5FF" stroke="#2563EB" stroke-width="2"/>
+<text x="727.0" y="338" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#2563EB">公共文档 D</text>
+<rect x="1180" y="251" width="490" height="54" rx="12" fill="#F1F3F8" stroke="#D9E2EF" stroke-width="2"/>
+<text x="1205.0" y="263" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#7855C5">问题 A</text>
+<rect x="1180" y="320" width="490" height="54" rx="12" fill="#F1F3F8" stroke="#D9E2EF" stroke-width="2"/>
+<text x="1205.0" y="332" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#087F8C">问题 B</text>
+<rect x="60" y="425" width="810" height="475" rx="18" fill="#FFFFFF" stroke="#D9E2EF" stroke-width="2"/>
+<rect x="930" y="425" width="810" height="475" rx="18" fill="#FFFFFF" stroke="#D9E2EF" stroke-width="2"/>
+<text x="88.0" y="451" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="31" font-weight="700" fill="#2563EB">vLLM APC：按块建立哈希索引</text>
+<text x="88.0" y="510" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#15253F">h[i] = H(h[i-1], 当前块 tokens, 附加信息)</text>
+<rect x="95" y="585" width="190" height="70" rx="12" fill="#EAF0FC" stroke="#2563EB" stroke-width="2"/>
+<text x="161.5" y="603" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#2563EB">h[1]</text>
+<polyline points="288,620 326,620" fill="none" stroke="#2563EB" stroke-width="3"/>
+<polygon points="326.0,620.0 314.5,626.0 314.5,614.0" fill="#2563EB"/>
+<rect x="335" y="585" width="190" height="70" rx="12" fill="#EAF0FC" stroke="#2563EB" stroke-width="2"/>
+<text x="401.5" y="603" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#2563EB">h[2]</text>
+<polyline points="528,620 566,620" fill="none" stroke="#2563EB" stroke-width="3"/>
+<polygon points="566.0,620.0 554.5,626.0 554.5,614.0" fill="#2563EB"/>
+<rect x="575" y="585" width="190" height="70" rx="12" fill="#EAF0FC" stroke="#2563EB" stroke-width="2"/>
+<text x="641.5" y="603" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#2563EB">h[3]</text>
+<polyline points="190,660 190,707" fill="none" stroke="#2563EB" stroke-width="3"/>
+<polygon points="190.0,707.0 184.0,695.5 196.0,695.5" fill="#2563EB"/>
+<rect x="95" y="715" width="190" height="70" rx="12" fill="#F3F6FA" stroke="#D9E2EF" stroke-width="2"/>
+<text x="143.5" y="736" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#15253F">物理块 7</text>
+<polyline points="430,660 430,707" fill="none" stroke="#2563EB" stroke-width="3"/>
+<polygon points="430.0,707.0 424.0,695.5 436.0,695.5" fill="#2563EB"/>
+<rect x="335" y="715" width="190" height="70" rx="12" fill="#F3F6FA" stroke="#D9E2EF" stroke-width="2"/>
+<text x="383.5" y="736" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#15253F">物理块 2</text>
+<polyline points="670,660 670,707" fill="none" stroke="#2563EB" stroke-width="3"/>
+<polygon points="670.0,707.0 664.0,695.5 676.0,695.5" fill="#2563EB"/>
+<rect x="575" y="715" width="190" height="70" rx="12" fill="#F3F6FA" stroke="#D9E2EF" stroke-width="2"/>
+<text x="616.5" y="736" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#15253F">物理块 11</text>
+<text x="88.0" y="826" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#53647B">匹配的完整前缀块 → 复用已有 KV</text>
+<text x="958.0" y="451" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="31" font-weight="700" fill="#087F8C">SGLang：按前缀建立 Radix Tree</text>
+<rect x="1170" y="515" width="330" height="64" rx="12" fill="#E8F6F4" stroke="#087F8C" stroke-width="2"/>
+<text x="1242.5" y="533" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#087F8C">共享前缀 S + D</text>
+<polyline points="1335,584 1335,623 1130,623 1130,663" fill="none" stroke="#087F8C" stroke-width="3"/>
+<polygon points="1130.0,663.0 1124.0,651.5 1136.0,651.5" fill="#087F8C"/>
+<polyline points="1335,623 1540,623 1540,663" fill="none" stroke="#087F8C" stroke-width="3"/>
+<polygon points="1540.0,663.0 1534.0,651.5 1546.0,651.5" fill="#087F8C"/>
+<rect x="1010" y="670" width="240" height="64" rx="12" fill="#F1F3F8" stroke="#D9E2EF" stroke-width="2"/>
+<text x="1090.0" y="687" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#7855C5">问题 A</text>
+<rect x="1420" y="670" width="240" height="64" rx="12" fill="#F1F3F8" stroke="#D9E2EF" stroke-width="2"/>
+<text x="1501.0" y="687" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#087F8C">问题 B</text>
+<text x="970.0" y="772" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#53647B">树节点保存 token 片段与 KV 位置映射</text>
+<text x="970.0" y="825" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#53647B">匹配到公共路径 → 复用已有 KV</text>
+<rect x="60" y="935" width="1680" height="155" rx="18" fill="#EAF0F8" stroke="#EAF0F8" stroke-width="2"/>
+<text x="88.0" y="958" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#15253F">共同底层：KV 张量保存在显存池中，可按页 / 块寻址</text>
+<text x="88.0" y="1010" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#53647B">PagedAttention 与 RadixAttention 可以配合使用；树节点不是直接在 GPU 上执行的注意力算子。</text>
+</svg>

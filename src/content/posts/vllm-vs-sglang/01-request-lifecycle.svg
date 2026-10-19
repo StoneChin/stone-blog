@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1720" height="980" viewBox="0 0 1720 980"><rect width="100%" height="100%" fill="#F6F8FC"/>
+<text x="64.0" y="44" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="44" font-weight="700" fill="#15253F">01 / 一次请求，两个计算阶段</text>
+<text x="66.0" y="110" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#53647B">以自回归文本生成模型为例；示意图不按实际耗时比例绘制</text>
+<rect x="65" y="190" width="300" height="145" rx="18" fill="#EFF5FF" stroke="#2563EB" stroke-width="2"/>
+<text x="87.0" y="208" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#2563EB">请求准备</text>
+<text x="87.0" y="251" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">模板处理 → Tokenize</text>
+<text x="87.0" y="286" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">排队 → 查询可复用前缀</text>
+<rect x="415" y="190" width="460" height="145" rx="18" fill="#EFF5FF" stroke="#2563EB" stroke-width="2"/>
+<text x="437.0" y="208" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#2563EB">Prefill：处理输入</text>
+<text x="437.0" y="251" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">计算未命中的输入 token</text>
+<text x="437.0" y="286" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">建立 KV Cache，随后采样首个 token</text>
+<rect x="925" y="190" width="460" height="145" rx="18" fill="#EBF8F6" stroke="#087F8C" stroke-width="2"/>
+<text x="947.0" y="208" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#087F8C">Decode：迭代生成</text>
+<text x="947.0" y="251" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">读取已有 KV，处理新增 token</text>
+<text x="947.0" y="286" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">更新 KV，采样后续 token</text>
+<rect x="1430" y="190" width="225" height="145" rx="18" fill="#F2EEFB" stroke="#7855C5" stroke-width="2"/>
+<text x="1452.0" y="208" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#7855C5">响应</text>
+<text x="1452.0" y="251" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">流式返回</text>
+<text x="1452.0" y="286" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">完成或停止</text>
+<polyline points="373,260 407,260" fill="none" stroke="#53647B" stroke-width="3"/>
+<polygon points="407.0,260.0 395.5,266.0 395.5,254.0" fill="#53647B"/>
+<polyline points="883,260 917,260" fill="none" stroke="#53647B" stroke-width="3"/>
+<polygon points="917.0,260.0 905.5,266.0 905.5,254.0" fill="#53647B"/>
+<polyline points="1393,260 1422,260" fill="none" stroke="#53647B" stroke-width="3"/>
+<polygon points="1422.0,260.0 1410.5,266.0 1410.5,254.0" fill="#53647B"/>
+<polyline points="1270,344 1270,385 1020,385 1020,344" fill="none" stroke="#087F8C" stroke-width="3"/>
+<polygon points="1020.0,344.0 1026.0,355.5 1014.0,355.5" fill="#087F8C"/>
+<text x="1085.0" y="400" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#087F8C">重复至停止条件</text>
+<rect x="65" y="380" width="810" height="75" rx="18" fill="#EAF0FC" stroke="#EAF0FC" stroke-width="2"/>
+<text x="88.0" y="402" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#2563EB">TTFT：从发出请求到收到首个 token 的等待时间</text>
+<text x="66.0" y="515" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="700" fill="#15253F">连续批处理：每轮重新组织正在运行的请求</text>
+<text x="369.0" y="580" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#53647B">调度轮次 1</text>
+<text x="684.0" y="580" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#53647B">调度轮次 2</text>
+<text x="999.0" y="580" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#53647B">调度轮次 3</text>
+<text x="1314.0" y="580" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#53647B">调度轮次 4</text>
+<text x="90.0" y="645" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#2563EB">请求 A</text>
+<rect x="310" y="632" width="245" height="53" rx="12" fill="#EAF0FC" stroke="#EAF0FC" stroke-width="2"/>
+<text x="408.0" y="644" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#2563EB">完成</text>
+<rect x="625" y="632" width="245" height="53" rx="12" fill="#EFF2F7" stroke="#EFF2F7" stroke-width="2"/>
+<rect x="940" y="632" width="245" height="53" rx="12" fill="#EFF2F7" stroke="#EFF2F7" stroke-width="2"/>
+<rect x="1255" y="632" width="245" height="53" rx="12" fill="#EFF2F7" stroke="#EFF2F7" stroke-width="2"/>
+<text x="90.0" y="717" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#087F8C">请求 B</text>
+<rect x="310" y="704" width="245" height="53" rx="12" fill="#E8F6F4" stroke="#E8F6F4" stroke-width="2"/>
+<text x="408.0" y="716" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#087F8C">生成</text>
+<rect x="625" y="704" width="245" height="53" rx="12" fill="#E8F6F4" stroke="#E8F6F4" stroke-width="2"/>
+<text x="723.0" y="716" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#087F8C">生成</text>
+<rect x="940" y="704" width="245" height="53" rx="12" fill="#E8F6F4" stroke="#E8F6F4" stroke-width="2"/>
+<text x="1038.0" y="716" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#087F8C">生成</text>
+<rect x="1255" y="704" width="245" height="53" rx="12" fill="#E8F6F4" stroke="#E8F6F4" stroke-width="2"/>
+<text x="1353.0" y="716" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#087F8C">生成</text>
+<text x="90.0" y="789" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#7855C5">请求 C</text>
+<rect x="310" y="776" width="245" height="53" rx="12" fill="#EFF2F7" stroke="#EFF2F7" stroke-width="2"/>
+<rect x="625" y="776" width="245" height="53" rx="12" fill="#F0ECFA" stroke="#F0ECFA" stroke-width="2"/>
+<text x="675.0" y="788" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#7855C5">加入 / 预填充</text>
+<rect x="940" y="776" width="245" height="53" rx="12" fill="#F0ECFA" stroke="#F0ECFA" stroke-width="2"/>
+<text x="1038.0" y="788" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#7855C5">生成</text>
+<rect x="1255" y="776" width="245" height="53" rx="12" fill="#F0ECFA" stroke="#F0ECFA" stroke-width="2"/>
+<text x="1353.0" y="788" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#7855C5">完成</text>
+<text x="67.0" y="897" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#53647B">A 完成后即可接纳 C，无须等待 B 结束。批内 token 配额与执行方式由调度器决定。</text>
+</svg>

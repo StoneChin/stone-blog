@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1280" viewBox="0 0 1800 1280"><rect width="100%" height="100%" fill="#F6F8FC"/>
+<text x="64.0" y="44" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="44" font-weight="700" fill="#15253F">02 / vLLM 与 SGLang：核心组件对照</text>
+<text x="66.0" y="110" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#53647B">简化的常规 GPU 在线服务路径；方框表示逻辑组件，并非全部一一对应独立进程</text>
+<rect x="60" y="180" width="810" height="940" rx="24" fill="#FFFFFF" stroke="#D9E2EF" stroke-width="2"/>
+<rect x="930" y="180" width="810" height="940" rx="24" fill="#FFFFFF" stroke="#D9E2EF" stroke-width="2"/>
+<text x="90.0" y="205" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="38" font-weight="700" fill="#2563EB">vLLM · V1</text>
+<text x="960.0" y="205" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="38" font-weight="700" fill="#087F8C">SGLang · Runtime / SRT</text>
+<rect x="105" y="275" width="720" height="120" rx="18" fill="#EFF5FF" stroke="#2563EB" stroke-width="2"/>
+<text x="127.0" y="293" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#2563EB">API Server / Engine Client</text>
+<text x="127.0" y="336" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">HTTP、输入处理、请求提交与响应流</text>
+<polyline points="465,400 465,435" fill="none" stroke="#2563EB" stroke-width="3"/>
+<polygon points="465.0,435.0 459.0,423.5 471.0,423.5" fill="#2563EB"/>
+<rect x="105" y="440" width="720" height="295" rx="18" fill="#F1F5FD" stroke="#2563EB" stroke-width="2"/>
+<text x="132.0" y="462" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#2563EB">EngineCore</text>
+<rect x="130" y="520" width="320" height="135" rx="18" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+<text x="152.0" y="538" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#2563EB">Scheduler</text>
+<text x="152.0" y="581" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">每轮 token 配额</text>
+<text x="152.0" y="616" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">队列与调度</text>
+<rect x="480" y="520" width="320" height="135" rx="18" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+<text x="502.0" y="538" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#2563EB">KVCacheManager</text>
+<text x="502.0" y="581" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">块分配 / 回收</text>
+<text x="502.0" y="616" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">前缀缓存索引</text>
+<polyline points="453,578 477,578" fill="none" stroke="#2563EB" stroke-width="3"/>
+<polygon points="477.0,578.0 465.5,584.0 465.5,572.0" fill="#2563EB"/>
+<text x="132.0" y="680" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#2563EB">Executor：将执行任务分发给 Worker</text>
+<polyline points="465,741 465,775" fill="none" stroke="#2563EB" stroke-width="3"/>
+<polygon points="465.0,775.0 459.0,763.5 471.0,763.5" fill="#2563EB"/>
+<rect x="105" y="780" width="720" height="155" rx="18" fill="#EFF5FF" stroke="#2563EB" stroke-width="2"/>
+<text x="127.0" y="798" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#2563EB">GPU Worker → ModelRunner</text>
+<text x="127.0" y="841" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">准备输入张量、执行模型前向、采样</text>
+<text x="127.0" y="876" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">Attention 后端 / 算子 / CUDA Graph</text>
+<text x="135.0" y="965" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#15253F">GPU：模型权重 + KV 张量 + 工作区</text>
+<text x="135.0" y="1015" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">输出经 EngineCore / 客户端返回 API Server</text>
+<rect x="975" y="275" width="720" height="120" rx="18" fill="#ECF8F6" stroke="#087F8C" stroke-width="2"/>
+<text x="997.0" y="293" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#087F8C">HTTP Server / TokenizerManager</text>
+<text x="997.0" y="336" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">请求预处理、分词、发送请求与返回响应</text>
+<polyline points="1335,400 1335,435" fill="none" stroke="#087F8C" stroke-width="3"/>
+<polygon points="1335.0,435.0 1329.0,423.5 1341.0,423.5" fill="#087F8C"/>
+<rect x="975" y="440" width="720" height="295" rx="18" fill="#F0F9F7" stroke="#087F8C" stroke-width="2"/>
+<text x="1002.0" y="462" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#087F8C">Scheduler</text>
+<rect x="1000" y="520" width="320" height="135" rx="18" fill="#FFFFFF" stroke="#087F8C" stroke-width="2"/>
+<text x="1022.0" y="538" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#087F8C">批次组织与调度</text>
+<text x="1022.0" y="581" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">Prefill / Decode</text>
+<text x="1022.0" y="616" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">CPU 与 GPU 工作重叠</text>
+<rect x="1350" y="520" width="320" height="135" rx="18" fill="#FFFFFF" stroke="#087F8C" stroke-width="2"/>
+<text x="1372.0" y="538" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#087F8C">Radix Cache / 池</text>
+<text x="1372.0" y="581" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">前缀查询与复用</text>
+<text x="1372.0" y="616" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">KV 位置与生命周期</text>
+<polyline points="1323,578 1347,578" fill="none" stroke="#087F8C" stroke-width="3"/>
+<polygon points="1347.0,578.0 1335.5,584.0 1335.5,572.0" fill="#087F8C"/>
+<text x="1002.0" y="680" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#087F8C">TpModelWorker → ModelRunner → GPU 算子</text>
+<polyline points="1335,741 1335,775" fill="none" stroke="#087F8C" stroke-width="3"/>
+<polygon points="1335.0,775.0 1329.0,763.5 1341.0,763.5" fill="#087F8C"/>
+<rect x="975" y="780" width="720" height="155" rx="18" fill="#ECF8F6" stroke="#087F8C" stroke-width="2"/>
+<text x="997.0" y="798" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#087F8C">DetokenizerManager</text>
+<text x="997.0" y="841" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">将生成的 token 转成文本</text>
+<text x="997.0" y="876" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">回传 TokenizerManager，再由 HTTP 流式返回</text>
+<text x="1005.0" y="965" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#15253F">GPU：模型权重 + KV 张量 + 工作区</text>
+<text x="1005.0" y="1015" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#53647B">调度与模型 Worker 在常规路径中紧密协作</text>
+<rect x="60" y="1145" width="1680" height="85" rx="18" fill="#EAF0F8" stroke="#EAF0F8" stroke-width="2"/>
+<text x="88.0" y="1169" dominant-baseline="text-before-edge" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#15253F">两者都包含：服务入口 → 调度与缓存管理 → 模型执行 → 输出处理；多卡与分离式部署会扩展拓扑。</text>
+</svg>
