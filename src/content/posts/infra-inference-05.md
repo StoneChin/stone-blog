@@ -1,6 +1,6 @@
 ---
 title: 推理系统-05-量化
-published: 2026-10-13
+published: 2026-07-14
 description: ''
 image: ''
 tags: ["推理加速", "AI Infra"]

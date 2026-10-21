@@ -1,6 +1,6 @@
 ---
 title: 推理系统-03-算子融合
-published: 2026-10-12
+published: 2026-07-10
 description: ''
 image: ''
 tags: ["推理加速", "AI Infra"]

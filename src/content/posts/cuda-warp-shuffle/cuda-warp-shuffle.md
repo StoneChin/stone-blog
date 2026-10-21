@@ -1,5 +1,5 @@
 ---
-title: 【CUDA】Warp Shuffle
+title: 【CUDA洗牌】从0开始理解shuffle
 published: 2025-05-23
 description: ''
 image: ''
@@ -9,22 +9,19 @@ draft: false
 lang: ''
 slug: cuda-warp-shuffle
 ---
-
-# Warp Shuffle
-
-
-在学习过程中，shuffle函数的理解和我一开始的理解出现了一部分的偏差，因此将学习过程记录下来。
+# 【CUDA洗牌】从0开始理解shuffle
 
 参考资料：
 
 https://docs.nvidia.com/cuda/cuda-programming-guide/05-appendices/cpp-language-extensions.html#warp-shuffle-functions
 
-https://www.cnblogs.com/bandaoyu/p/19216933
+[https://www.cnblogs.com/bandaoyu/p/19216933](https://www.cnblogs.com/bandaoyu/p/19216933)
 
 # 基本概念
 
 warp是CUDA的重要级别，也是CUDA开展高性能工作的一个核心概念。warp的出现往往伴随着element-wise类型的reduce方法：**`shuffle`**洗牌
 
+在学习过程中，shuffle函数的理解和我一开始的理解出现了一部分的偏差，因此将学习过程记录下来。
 
 ```cpp
 T __shfl_sync     (unsigned mask, T value, int      srcLane,  int width=warpSize);
@@ -65,7 +62,7 @@ __global__ void kernel() {
 
 下面的图片是从2中取出数据进行洗牌广播，上面是直接广播，下面是每16为一组然后去取lane=2的进行广播
 
-!40075b1a10c719f1cb6d2d0946442eec.png
+![40075b1a10c719f1cb6d2d0946442eec.png](40075b1a10c719f1cb6d2d0946442eec.png)
 
 # **2. __shfl_up_sync 序号向前**
 
@@ -98,7 +95,7 @@ __global__ void kernel() {
 
 下图表示： mask=0xffffffff 覆盖所有线程，delta=2，所以所有线程参与，从ID=本身 ID -`delta` 的线程获取数据，前 2 个因为 ID -`delta`<0,所以返回的是自身的数据：
 
-!333daa0933321df82e107bd7ff302e58.png
+![333daa0933321df82e107bd7ff302e58.png](333daa0933321df82e107bd7ff302e58.png)
 
 # **3. __shfl_down_sync 序号向后**
 
@@ -112,11 +109,11 @@ T __shfl_down_sync(unsigned mask, T var, unsigned int delta, int width=32);
 
 下图： mask=0xffffffff 覆盖所有线程，delta=3，所以所有线程参与，从ID=本身 ID +3 的线程获取数据，后 3 个因为 ID +`delta`> width-1,所以返回的是自身的数据。
 
-!909575cb304b24429b6ebc4f94da280d.png
+![909575cb304b24429b6ebc4f94da280d.png](909575cb304b24429b6ebc4f94da280d.png)
 
 ## warp shuffle的使用
 
-!1f99f3c9f1f71a3ccaa9033948c15714.png
+![1f99f3c9f1f71a3ccaa9033948c15714.png](1f99f3c9f1f71a3ccaa9033948c15714.png)
 
 再warp shuffle中，经常会使用`__shfl_down_sync(0xFFFFFFFF, x, offset)` 的形式，本质上就是lane小的位置在warp中递归的获取lane+offse位置的值进行规约。
 

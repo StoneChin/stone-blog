@@ -44,9 +44,9 @@ Transformer 的注意力计算包含 Query、Key、Value。自回归生成时，
 
 对于常规全注意力 MHA/GQA 模型，忽略分片、共享和额外开销，单条序列的 KV 存储量可近似写成：
 
-\[
+$
 M_{KV} \approx 2 \times L \times T \times H_{KV} \times D_{head} \times B
-\]
+$
 
 其中，2 代表 K 和 V，\(L\) 是层数，\(T\) 是已缓存 token 数，\(H_{KV}\) 是 KV 头数，\(D_{head}\) 是头维度，\(B\) 是每个元素的字节数。
 
